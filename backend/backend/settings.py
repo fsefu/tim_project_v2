@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "api",
     # 'user',
     "corsheaders",
+    "newsletter_hub",
 ]
 ASGI_APPLICATION = "backend.asgi.application"
 
@@ -95,16 +96,28 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "defaultdb",
+#         "USER": "avnadmin",
+#         "PASSWORD": "AVNS_Ttiaod5cE6pSQJDTuwi",
+#         "HOST": "klaviyoapp-safetyinfo8-386a.a.aivencloud.com",
+#         "PORT": "15760",
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "defaultdb",
-        "USER": "avnadmin",
-        "PASSWORD": "AVNS_Ttiaod5cE6pSQJDTuwi",
-        "HOST": "klaviyoapp-safetyinfo8-386a.a.aivencloud.com",
-        "PORT": "15760",
+        "NAME": "tim_project_db",
+        "USER": "root",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "3306",
     }
 }
+
 
 # DATABASES = {
 #     'default': {

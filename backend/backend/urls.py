@@ -23,4 +23,5 @@ urlpatterns = [
     path("auth/", include("user.urls")),
     path("api/", include("api.urls")),
     path("master/", include("master.urls")),
+    path("news-letter/", include("newsletter_hub.urls")),
 ]
