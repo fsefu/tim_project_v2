@@ -5,9 +5,15 @@ class NewsLetterData(models.Model):
     title = models.CharField(max_length=255)
     file_name = models.FileField(upload_to="newsletters/pdfs/")
     date = models.DateField()
+    isGenerated = models.BooleanField(default=False)  # New field
 
     def __str__(self):
         return self.title
+
+    def mark_as_generated(self):
+        if self.extractedtext_set.exists() and self.extractedimage_set.exists():
+            self.isGenerated = True
+            self.save()
 
 
 class ExtractedText(models.Model):
@@ -30,9 +36,7 @@ class ExtractedImage(models.Model):
 
 class NewsLetter(models.Model):
     text_id = models.ForeignKey(ExtractedText, on_delete=models.CASCADE)
-    news_letter_title = models.CharField(max_length=255)
     news_letter_content = models.TextField()
-    is_introduction = models.BooleanField(default=False)
 
     def __str__(self):
         return self.news_letter_title

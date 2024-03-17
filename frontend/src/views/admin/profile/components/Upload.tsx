@@ -58,6 +58,9 @@ const Upload = () => {
             setIsLoading(false);
             console.log("PDF Upload Response:", response);
             toast.success(`${filePreview} is successfully uploaded`);
+            setSelectedFile(null);
+            formik.setFieldValue("title", "");
+            setFilePreview(null);
           })
           .catch((error) => {
             setIsLoading(false);
@@ -133,8 +136,9 @@ const Upload = () => {
     <>
       <ToastContainer position="top-left" className="z-50" />
       {isLoading && <Spinner />}
-      <Card className="grid h-full w-full grid-cols-1 gap-3 rounded-[20px] bg-white bg-clip-border p-3 font-dm shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none 2xl:grid-cols-11">
-        <div className="col-span-5 h-full w-full rounded-xl bg-lightPrimary dark:!bg-navy-700 2xl:col-span-6">
+      <Card className="grid h-full w-[300px] grid-cols-1 gap-2 rounded-[20px] bg-white bg-clip-border p-3 font-dm shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none 2xl:grid-cols-9">
+        {/* <Card className="grid h-full w-auto grid-cols-1 gap-2 rounded-[20px] bg-white bg-clip-border p-3 font-dm shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:shadow-none 2xl:grid-cols-9"> */}
+        <div className="col-span-5 h-full w-full rounded-xl bg-lightPrimary dark:!bg-navy-700 2xl:col-span-full">
           <label
             htmlFor="file-upload"
             className="flex h-full w-full flex-col items-center justify-center rounded-xl border-[2px] border-dashed border-gray-200 py-3 dark:!border-navy-700 lg:pb-0 cursor-pointer"
@@ -270,7 +274,7 @@ const Upload = () => {
           </label>
         </div>
 
-        <div className="col-span-5 flex h-full w-full flex-col justify-center overflow-hidden rounded-xl bg-white pl-3 pb-4 dark:!bg-navy-800">
+        <div className="col-span-full flex h-full w-full flex-col justify-center overflow-hidden rounded-xl bg-white pl-3 pb-4 dark:!bg-navy-800">
           <h5 className="text-left text-xl font-bold leading-9 text-navy-700 dark:text-white">
             Generate Article and News from PDF
           </h5>

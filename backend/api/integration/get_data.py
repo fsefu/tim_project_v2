@@ -52,7 +52,20 @@ def get_data(url, klaviyo_api_key, item_type_from_params):
         name = item["attributes"]["name"]
         created_at = item["attributes"]["created"]
         updated_at = item["attributes"]["updated"]
-        members = get_customer_size(item_id, klaviyo_api_key)
+        if item_type_from_params == "List":
+            url = f"https://a.klaviyo.com/api/lists/{item_id}/profiles/?page[size]=100"
+        else:
+            url = (
+                f"https://a.klaviyo.com/api/segments/{item_id}/profiles/?page[size]=100"
+            )
+
+        members = get_customer_size(
+            item_id, klaviyo_api_key, item_type_from_params, url
+        )
+        print("---" * 30)
+        print("Members: ", members)
+        print("---" * 30)
+
         item_type = item_type_from_params
         if item_type_from_params == "List":
             link = None
