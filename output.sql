@@ -37,7 +37,7 @@ CREATE TABLE `api_klaviyoapikey` (
 LOCK TABLES `api_klaviyoapikey` WRITE;
 /*!40000 ALTER TABLE `api_klaviyoapikey` DISABLE KEYS */;
 INSERT INTO `api_klaviyoapikey` VALUES
-('78614e5a8690478d83a18c76c3ac7ada','safe@gmail.com','pk_3c1d5798653777e75d436ab02532c29bef');
+('78614e5a8690478d83a18c76c3ac7ada','safe@gmail.com','klaviyo_key');
 /*!40000 ALTER TABLE `api_klaviyoapikey` ENABLE KEYS */;
 UNLOCK TABLES;
 
