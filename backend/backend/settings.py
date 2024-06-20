@@ -112,7 +112,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "tim_project_db",
         "USER": "root",
-        "PASSWORD": "",
+        "PASSWORD": "j4me",
         "HOST": "localhost",
         "PORT": "3306",
     }
